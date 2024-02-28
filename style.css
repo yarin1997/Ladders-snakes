@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#ladderSnakes {
+    display: flex;
+    width: 44%;
+    height: 450px;
+    margin: auto;
+    background-image: url(sulamot.jpg);
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+.btn{
+    width: 100px;
+    height: 100px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+.cell {
+    width: 10%;
+    height: 10%;
+}
+.cube{
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    background-color: aquamarine;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
