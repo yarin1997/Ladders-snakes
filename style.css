@@ -4,33 +4,142 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(196, 170, 170);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #ladderSnakes {
     display: flex;
     width: 44%;
-    height: 450px;
+    height: 28.4rem;
     margin: auto;
     background-image: url(sulamot.jpg);
     background-repeat: no-repeat;
     margin-bottom: 20px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
-.btn{
-    width: 100px;
-    height: 100px;
-    background-color: wheat;
-    border-radius: 10px;
-}
+
 .cell {
     width: 10%;
     height: 10%;
+    position: relative;
 }
-.cube{
+
+.btn {
+    width: 100px;
+    height: 40px;
+    background-color: aqua;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+}
+
+.cube {
     width: 80px;
     height: 80px;
-    font-size: 35px;
+    font-size: 50px;
     background-color: aquamarine;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+}
+
+.player {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    transition: 1.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+select{
+    width: 100px;
+}
+form{
+    display: flex;
+    gap: 10px
+}
+input {
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: cyan;
+    color: black;
+    text-align: center;
+    height: 40px;
+    width: 150px;
+}
+#button{
+        width: 100px;
+            height: 40px;
+            background-color: rgb(174, 196, 168);
+            border-radius: 10px;
+            box-shadow: 0 0 10px white;
+            cursor: pointer;
+}
+div>img{position: absolute;}
+@media screen and (max-width: 750px) {
+
+    #ladderSnakes {
+        display: flex;
+        width:100vw;
+        height: 250px;
+        max-width: 500px;
+            /* Set a maximum width if needed */
+            max-height: 280px;
+            /* Set a maximum height if needed */
+        margin: auto;
+        background-image: url(sulamot.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .cell {
+        width: 10%;
+        height: 10%;
+        position: relative;
+    }
+
+    .btn {
+        width: 100px;
+        height: 100px;
+        background-color: wheat;
+        border-radius: 10px;
+    }
+
+
+
+    .cube {
+        width: 80px;
+        height: 80px;
+        font-size: 50px;
+        background-color: aquamarine;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .player {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        font-size:x-small;
+        border-radius: 100px;
+        transition: 1.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
