@@ -17,8 +17,7 @@ body {
     width: 44%;
     height: 28.4rem;
     margin: auto;
-    background-image: url(sulamot.jpg);
-    background-repeat: no-repeat;
+    
     margin-bottom: 20px;
     position: relative;
     justify-content: center;
@@ -63,21 +62,29 @@ body {
 }
 select{
     width: 100px;
+    border-radius: 15px solid black;
+    background-color: white;
+    direction: rtl;
+    color: black;
+    height: 30px;
 }
 form{
     display: flex;
-    gap: 10px
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 input {
     border: 2px solid white;
     border-radius: 10px;
-    background-color: cyan;
+    background-color: rgb(180, 219, 219);
     color: black;
     text-align: center;
     height: 40px;
     width: 150px;
 }
-#button{
+input[type="submit"] {
         width: 100px;
             height: 40px;
             background-color: rgb(174, 196, 168);
@@ -85,29 +92,35 @@ input {
             box-shadow: 0 0 10px white;
             cursor: pointer;
 }
-div>img{position: absolute;}
+ 
+.line{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+}
 @media screen and (max-width: 750px) {
 
     #ladderSnakes {
         display: flex;
         width:100vw;
-        height: 250px;
-        max-width: 500px;
-            /* Set a maximum width if needed */
-            max-height: 280px;
-            /* Set a maximum height if needed */
+        height: 450px;
+    
         margin: auto;
-        background-image: url(sulamot.jpg);
-        background-repeat: no-repeat;
-        background-size:cover;
+       
         margin-bottom: 20px;
         position: relative;
     }
+    img{
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
 
     .cell {
-        width: 10%;
-        height: 10%;
+        /* width: 10%-3px;
+        height: 10%-2px; */
         position: relative;
+        
     }
 
     .btn {
