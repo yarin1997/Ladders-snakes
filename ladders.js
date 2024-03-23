@@ -11,6 +11,10 @@ let playerStone = document.createElement('div');
 const board = document.createElement('div');
 // id ללוח המשחק
 board.id = 'ladderSnakes';
+const img = document.createElement('img');
+img.src='sulamot.jpg'
+img.style.position='absolute'
+board.appendChild(img);
 // הוספת לוח המשתנה שמייצג את לוח המשחק לגוף האתר
 document.body.appendChild(board);
 let mission = document.createElement('p'); // הוספת פסקה שתציג הערות
@@ -35,17 +39,19 @@ for (i = 0; i < 100; i++) {
 }
 let rect = document.getElementById(`id${1}`).getBoundingClientRect();
 console.log('Top:', rect.top);
+const line=document.createElement('div')
+line.classList.add('line')
 
 // יצירת כפתור לזריקת קוביוץ. בלחיצה נזרקת קובייה והשחקן מתקדם
 const btn = document.createElement('button');
 btn.classList.add('btn');
 btn.innerText = 'הטל קובייה';
 btn.disabled = true;
-document.body.appendChild(btn);
+line.appendChild(btn);
 // יצירת ה- select
 let select = document.createElement('select');
 // הוספת ה- select ל- body של המסמך
-document.body.appendChild(select);
+line.appendChild(select);
 let option = document.createElement("option");
 option.value = "";
 option.text = "'מס שחקנים"
@@ -64,7 +70,8 @@ for (i = 1; i <= 4; i++) {
 // קוביית המשחק
 let cube = document.createElement('img')
 cube.classList.add('cube')
-document.body.appendChild(cube);
+line.appendChild(cube);
+document.body.appendChild(line)
 // מספר השחקנים שיבחר בהמשך:
 let numberPlayers = 0;
 // מייצג א התור המשתתף הנוכחי  להטיל קובייה בכל רגע נתון במהלך המשחק
@@ -74,7 +81,8 @@ let form = document.createElement('form');
 // אינפו להזנת שמות מתמודדים
 let inputName = document.createElement('input');
 // כפתור לשילחת השמות למערכת לפני התחלת המשחק
-let submitButton = document.createElement('button');
+let submitButton = document.createElement('input');
+
 //בפונקציה כאן נבחר כמות המשתתפים
 // בעת בחירה על כמות משתתפיםת, תפעל מייד הפונקציה שחאראית על מספר דברים:
 //1.איזה שחקן יתחיל במשחק, הוספת הטופס לדף המשחקת במידה ויש רצון להוציא מתמודד יש לולאת וויל ולולאת פור בשביל להוסיף
@@ -96,8 +104,8 @@ select.addEventListener('change', () => {
         form.appendChild(inputName);
     }
     submitButton.setAttribute('id', 'button');
-    submitButton.type = 'button';
-    submitButton.innerText = 'הזן שמות'
+    submitButton.type = 'submit';
+    submitButton.value = 'הזן שמות'
     // submitButton.required = true;
     form.appendChild(submitButton);
 })
@@ -109,8 +117,11 @@ submitButton.addEventListener('click', () => {
         playerStone.setAttribute('id', `player${i}`);
         playerStone.innerText = string;
         playerStone.classList.add("player");
-        playerStone.style.top = `${rect.top}px`;
-        playerStone.style.left = `${rect.left}px`;
+      const centerX = (rect.left + rect.right) / 2;
+const centerY = (rect.top + rect.bottom) / 2;
+
+        playerStone.style.top = `${centerY}px`;
+        playerStone.style.left = `${centerX}px`;
         playerStone.style.backgroundColor = getRandomColor();
         document.body.appendChild(playerStone);
     }
@@ -122,6 +133,10 @@ submitButton.addEventListener('click', () => {
 });
 btn.addEventListener('click', function () {
     let rollingSound = new Audio('tools/SnakesAndLadder_rpg-dice-rolling-95182.mp3');
+    if (turn == numberPlayers - 1)
+    mission.innerHTML = `זה התור של שחקן - ${arrPlayers[0].name}`;
+    else
+            mission.innerHTML = `זה התור של שחקן - ${arrPlayers[turn+1].name}`;
     rollingSound.play()
     btn.disabled = true;
     select.disabled = true;
@@ -170,7 +185,7 @@ function throwCube(player) {
                 break
             case 23:
                 player.location = 13;
-                rollingSound.src = 'jtoolss/land2-43790.mp3';
+                rollingSound.src = 'tools/land2-43790.mp3';
                 rollingSound.play()
 
                 break
@@ -239,9 +254,9 @@ function throwCube(player) {
                 mission.innerHTML = 'תשיר לי שיר';
                 break
             case 100:
-                alert(`ברכות על הניצחון ל${player.player}`)
+               mission.innerHTML =`כל הכבוד ${player.name} ניצחת!`
                 player.Points++;
-                console.log('num of point' + player.Points)
+                
                 for (i = 0; i < numberPlayers; i++) {
                     document.getElementById(`id${arrPlayers[i].location}`).innerText = "";
                     arrPlayers[i].location = 1;
@@ -255,7 +270,7 @@ function throwCube(player) {
             default:
                 if (player.location > 100) {
                     player.location -= num;
-                    alert('to much' + player.player)
+                    mission.innerHTML='קצת יותר מדי'
                 }
                 break;
         }
@@ -263,14 +278,15 @@ function throwCube(player) {
         document.getElementById(`id${player.location}`).innerText = player.player;
         let loc = document.getElementById(`id${player.location}`).getBoundingClientRect();
         let playerStone = document.getElementById(`player${turn}`);
-        playerStone.style.top = `${loc.top + 5}px`
-        playerStone.style.left = `${loc.left + 10}px`
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+        playerStone.style.top = `${loc.top +scrollTop+5}px`
+        playerStone.style.left = `${loc.left +scrollLeft+5 }px`
 
         turn++;
         if (turn >= numberPlayers) {
             turn = 0;
         }
-        mission.innerHTML = `זה התור של שחקן - ${arrPlayers[turn].name}`;
     }, 500)
 }
 
