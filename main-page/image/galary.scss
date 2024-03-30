@@ -1,0 +1,203 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+    margin-top: 55px;
+    margin-bottom: 150px;
+
+    h1 {
+        color: #3A3A3A;
+        font-size: 36px;
+        font-family: heebo;
+        font-weight: 900;
+        text-align: center;
+    }
+
+    p {
+        color: #3A3A3A;
+        font-size: 20px;
+        font-weight: 400;
+        font-family: heebo;
+        text-align: center;
+        width: 500px;
+        margin-top: 20px;
+    }
+
+    .grid-gallary {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        // margin-top: 50px;
+
+        .flex-item {
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 3px 3px 15px #00000029;
+
+            h1 {
+                font-size: 23px;
+                color: #3A3A3A;
+                font-family: heebo;
+                font-weight: 500;
+            }
+
+            .name-project {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img[alt~="arrow point dwon"] {
+                    width: 50px;
+                    height: 60px;
+                }
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-self: center;
+                    gap: 10px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                button {
+                    background: #1AE0EC;
+                    border-radius: 15px;
+                    width: 150px;
+                    height: 30px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+
+                    a {
+                        color: #2C2C2C;
+                        font-size: 14px;
+                        font-family: heebo;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F6F6F6;
+        margin-top: 55px;
+        margin-bottom: 150px;
+
+        h1 {
+            color: #3A3A3A;
+            font-size: 25px;
+            font-family: heebo;
+            font-weight: 900;
+            text-align: center;
+
+        }
+
+        p {
+            color: #3A3A3A;
+            font-size: 14px;
+            font-weight: 400;
+            font-family: heebo;
+            text-align: center;
+            width: 330px;
+            margin-top: 20px;
+        }
+
+        .grid-gallary {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 50px;
+
+
+            .flex-item {
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                box-shadow: 3px 3px 15px #00000029;
+                
+                img {
+                    width: 50px;
+                    height: 60px;
+                    border-radius: 10px;
+                }
+
+                .name-project {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    h2 {
+                        font-size: 23px;
+                        color: #3A3A3A;
+                        font-family: heebo;
+                        font-weight: 500;
+                    }
+                }
+
+                p {
+                    font-size: 16px;
+                    font-family: heebo;
+                    font-weight: 400;
+                    color: #3A3A3A;
+                    width: 352px;
+                    margin-bottom: 50px;
+                }
+
+                .icon {
+                    display: flex;
+                    justify-content: center;
+                    align-self: center;
+                    gap: 10px;
+
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+
+                button {
+                    background: #1AE0EC;
+                    border-radius: 15px;
+                    width: 150px;
+                    height: 30px;
+                    margin-top: 50px;
+                    margin-bottom: 100px;
+
+                    a {
+                        color: #2C2C2C;
+                        font-size: 14px;
+                        font-family: heebo;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+.name-project:hover #sup {
+    display: block;
+}
+
+.name-project:hover {
+    opacity: 0.5;
+}
+
+img {
+    border-radius: 10px 10px 0 0;
+}
